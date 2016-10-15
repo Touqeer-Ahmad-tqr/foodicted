@@ -1,0 +1,44 @@
+// Place all the styles related to the foods controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+body {
+  text-align: center;
+  vertical-align: middle;
+}
+table {
+  margin: auto;
+  border-collapse: collapse;
+}
+
+.zero {
+  background-color: #D6EAA0;
+}
+
+.one {
+  background-color: #D6E1A3;
+}
+
+.two {
+  background-color: #D6E1B3;
+}
+
+.three {
+  background-color: #D6E1C3;
+}
+
+.four {
+  background-color: #D6E1D3;
+}
+
+.five {
+  background-color: Black;
+  width:0px;
+}
+
+hr {
+    display: block;
+    border-style: inset;
+    border-width: 3px;
+}

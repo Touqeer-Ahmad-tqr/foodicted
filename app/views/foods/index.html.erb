@@ -1,0 +1,54 @@
+
+<img src= <%= @logo %> >
+
+<h2>Hunting For: <%= @search_term %></h2>
+
+<h4><%= link_to "chocolate", foods_index_path(:looking_for => "chocolate") %> <%= link_to "noodle", foods_index_path(:looking_for => "noodle") %> <%= link_to "chicken", foods_index_path(:looking_for => "chicken") %> <%= link_to "burger", foods_index_path(:looking_for => "burger") %> <%= link_to "sandwich", foods_index_path(:looking_for => "sandwich") %> <%= link_to "cookie", foods_index_path(:looking_for => "cookie") %> <%= link_to "pizza", foods_index_path(:looking_for => "pizza") %> <%= link_to "rice", foods_index_path(:looking_for => "rice") %> </h4>
+<h3> You can seach by yourself by adding this in the link: ?looking_for=iced coffee </h3>
+
+<% if (@foods.nil? or @foods == []) %>
+	<p>
+	 <h3>No recipe found...</h3>
+	 <h3>Hey! don't give up.</h3>
+	 <h3>YOU ARE a HUNTER</h3>
+	</p>
+<% else %>
+	<TABLE Border = "2" Cellpadding = "4" >
+		<TR class=<%= 'zero' %>>
+			<TH Colspan = "1" Align = "center"><h2>Image</h2></TH>
+			<TH Colspan = "2" Align = "center"><h2>Details</h2></TH>
+		</TR>
+		<% @foods.each do |course| %>
+			<TR class=<%= 'one' %>>
+				<TH Rowspan = "4"><%= link_to(image_tag(course["image_url"], height: '200', width: '280'), course["image_url"])%></TH>
+				<Td><b>Name:</b></Td>
+				<Td><%= course["title"] %></Td>
+			</TR>
+
+			<TR class=<%= 'two' %>>
+				<Td><b>Rank:</b></Td>
+				<Td><%= course["social_rank"] %></Td>
+			</TR>
+
+			<TR class=<%= 'three' %>>
+				<Td Colspan = "2" Align = "center"><%= link_to("View Article", course["source_url"]) %></Td>
+			</TR>
+
+			<TR class=<%= 'four' %>>
+				<Td Colspan = "2" Align = "center"><%= link_to("View on Food2Fork", course["f2f_url"]) %></Td>
+			</TR>
+			<TR class=<%= 'five' %>>
+				<Td Colspan = "3" Align = "center"></Td>
+			</TR>
+
+		<% end %>
+	</TABLE>
+<% end %>	
+	<hr COLOR="orange"  >
+	<h4>Product Created By <b> <%= link_to('TQR', 'https://pk.linkedin.com/in/touqeer-ahmad-6a7b32b7') %></b>
+		<br><br>Product Powered By <%= link_to('Ruby on Rails', 'http://rubyonrails.org/') %>
+		<br><br>API Powered By <%= link_to('Food2Fork', 'http://www.food2fork.com/') %>
+		<br><br>Foodicted: Copyrights and trademarks for the food recipes, and other promotional materials
+		are held by their respective owners and their use is allowed under the fair use clause of the 
+		Copyright Law | Privacy Policy | DMCA<
+	</h4>
