@@ -1,5 +1,5 @@
 
-<img src= <%= @logo %> >
+<%= image_tag(@logo) %><br>
 
 <h2>Hunting For: <%= @search_term %></h2>
 
@@ -12,6 +12,8 @@
 	 <h3>Hey! don't give up.</h3>
 	 <h3>YOU ARE a HUNTER</h3>
 	</p>
+<% elsif (@foods=="error") %>
+	<h3>!!..Food2Fork Server Down..!!</h3>
 <% else %>
 	<TABLE Border = "2" Cellpadding = "4" >
 		<TR class=<%= 'zero' %>>
@@ -50,5 +52,5 @@
 		<br><br>API Powered By <%= link_to('Food2Fork', 'http://www.food2fork.com/') %>
 		<br><br>Foodicted: Copyrights and trademarks for the food recipes, and other promotional materials
 		are held by their respective owners and their use is allowed under the fair use clause of the 
-		Copyright Law | Privacy Policy | DMCA<
+		<%= link_to("Copyright Law") %> | <%= link_to("Privacy Policy") %> | <%= link_to("DMCA") %>
 	</h4>

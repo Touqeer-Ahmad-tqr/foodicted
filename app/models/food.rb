@@ -10,9 +10,15 @@ class Food
  format :json
  
  def self.for term
+ 	begin
  	get("/search", query: { q: term})["recipes"]
+ 	rescue Exception => e
+	  puts e.message
+	  return "error"
+	end
  end
-end
+
+ end
 
 
 #p Food.for('noodle')
