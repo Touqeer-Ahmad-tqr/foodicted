@@ -1,7 +1,7 @@
 class FoodsController < ApplicationController
-  def index
+  def recipe
   	@logo="foodicted_logo.png"
-  	@search_term = params[:looking_for] || 'noodle'
+  	@search_term = params[:looking_for]
   	@foods = Food.for(@search_term)
   end
 

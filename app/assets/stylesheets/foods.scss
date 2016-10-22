@@ -2,7 +2,45 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+div.logo-wrapper {
+  position: absolute;
+  hight: 80%;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%, -30%);
+}
+div.container {
+    width: 100%;
+    hight:100%
+}
 
+#end-wrapper1{
+  position:absolute;
+}
+#end-wrapper2{
+  position:relative;
+}
+div.end-wrapper{
+  width:98%;
+  hight: 20%;
+  bottom:0;
+  padding-top: 10px;
+  font-size: 11px;
+  font-weight: 400;
+  text-align: left;
+  color: #5e666e;
+}
+div.copy-right {
+    padding-left: 1%;
+}
+#looking_for{
+  width:70%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid orange;
+  border-radius: 4px;
+}
 body {
   text-align: center;
   vertical-align: middle;
@@ -38,7 +76,6 @@ table {
 }
 
 hr {
-    
     border-style: inset;
     border-width: 3px;
 }
