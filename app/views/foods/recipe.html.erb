@@ -1,68 +1,52 @@
 <div class="container">
-<div height="80%">
+	<%= link_to(image_tag("foodicted_logo.png"), root_path)%>
 
-<%= link_to(image_tag("foodicted_logo.png"), root_path)%>
-
-<%= form_tag(foods_recipe_path, method: "get") do %>
-      <%= text_field_tag(:looking_for) %><br>
-      <%= image_submit_tag("search_btn.jpg") %>
-<% end %>
+	<%= form_tag(foods_recipe_path, method: "get") do %>
+	      <%= text_field_tag(:looking_for) %><br>
+	      <%= image_submit_tag("search_btn.jpg") %>
+	<% end %>
 
 
-<h2>Hunting For: <%= @search_term %></h2>
+	<h2>Hunting For: <%= @search_term %></h2>
 
-<% if !@foods.present? %>
-	<p>
-	 <h3>No recipe found...</h3>
-	 <h3>Hey! don't give up.</h3>
-	 <h3>YOU ARE a HUNTER</h3>
-	</p>
-<% elsif (@foods=="error") %>
-	<h3>!!..Food2Fork Server Down..!!</h3>
-<% else %>
-	<TABLE Border = "2" Cellpadding = "4" >
-		<TR class=<%= 'zero' %>>
-			<TH Colspan = "1" Align = "center"><h2>Image</h2></TH>
-			<TH Colspan = "2" Align = "center"><h2>Details</h2></TH>
-		</TR>
-		<% @foods.each do |course| %>
-			<TR class=<%= 'one' %>>
-				<TH Rowspan = "4"><%= link_to(image_tag(course["image_url"], height: '200', width: '280'), course["image_url"])%></TH>
-				<Td><b>Name:</b></Td>
-				<Td><%= course["title"] %></Td>
+	<% if !@foods.present? %>
+		<p>
+		 <h3>No recipe found...</h3>
+		 <h3>Hey! don't give up.</h3>
+		 <h3>YOU ARE a HUNTER</h3>
+		</p>
+	<% elsif (@foods=="error") %>
+		<h3>!!..Food2Fork Server Down..!!</h3>
+	<% else %>
+		<TABLE class="recipies_list" Border = "2" Cellpadding = "4" >
+			<TR class=<%= 'zero' %>>
+				<TH Colspan = "1" Align = "center"><h2>Image</h2></TH>
+				<TH Colspan = "2" Align = "center"><h2>Details</h2></TH>
 			</TR>
+			<% @foods.each do |course| %>
+				<TR class=<%= 'one' %>>
+					<TH Rowspan = "4"><%= link_to(image_tag(course["image_url"], class: "recipe_image"), course["image_url"])%></TH>
+					<Td><b>Name:</b></Td>
+					<Td><%= course["title"] %></Td>
+				</TR>
 
-			<TR class=<%= 'two' %>>
-				<Td><b>Rank:</b></Td>
-				<Td><%= course["social_rank"] %></Td>
-			</TR>
+				<TR class=<%= 'two' %>>
+					<Td><b>Rank:</b></Td>
+					<Td><%= course["social_rank"] %></Td>
+				</TR>
 
-			<TR class=<%= 'three' %>>
-				<Td Colspan = "2" Align = "center"><%= link_to("View Article", course["source_url"]) %></Td>
-			</TR>
+				<TR class=<%= 'three' %>>
+					<Td Colspan = "2" Align = "center"><%= link_to("View Article", course["source_url"]) %></Td>
+				</TR>
 
-			<TR class=<%= 'four' %>>
-				<Td Colspan = "2" Align = "center"><%= link_to("View on Food2Fork", course["f2f_url"]) %></Td>
-			</TR>
-			<TR class=<%= 'five' %>>
-				<Td Colspan = "3" Align = "center"></Td>
-			</TR>
+				<TR class=<%= 'four' %>>
+					<Td Colspan = "2" Align = "center"><%= link_to("View on Food2Fork", course["f2f_url"]) %></Td>
+				</TR>
+				<TR class=<%= 'five' %>>
+					<Td Colspan = "3" Align = "center"></Td>
+				</TR>
 
-		<% end %>
-	</TABLE>
-<% end %>
-</div>
-<div id="end-wrapper2" class="end-wrapper">
-	<hr COLOR="orange"  >
-	<div class="copy-right">
-		<h4> Product Created By <b> <%= link_to('TQR', 'https://pk.linkedin.com/in/touqeer-ahmad-6a7b32b7') %></b>
-			<br><br> Product Powered By <%= link_to('Ruby on Rails', 'http://rubyonrails.org/') %>
-			<br><br> API Powered By <%= link_to('Food2Fork', 'http://www.food2fork.com/') %>
-			<br><br> Foodicted: Copyrights and trademarks for the food recipes, and other promotional materials
-			are held by their respective owners and their use is allowed under the fair use clause of the
-			<%= link_to("Copyright Law") %> | <%= link_to("Privacy Policy") %> | <%= link_to("DMCA") %>
-		</h4>
-	</div>
-</div>
-
+			<% end %>
+		</TABLE>
+	<% end %>
 </div>

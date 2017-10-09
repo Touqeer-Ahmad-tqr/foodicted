@@ -1,26 +1,10 @@
-
 <div class="container">
+	<div class="logo-wrapper">
+		<%= link_to(image_tag("foodicted_logo.png", class: 'logo_img'), root_path)%>
 
-<div class="logo-wrapper">
-	<%= link_to(image_tag("foodicted_logo.png"), root_path)%>
-
-	<%= form_tag(foods_recipe_path, method: "get") do %>
-	      <%= text_field_tag(:looking_for) %><br>
-	      <%= image_submit_tag("search_btn.jpg") %>
-	<% end %>
-</div>
-
-<div id="end-wrapper1"  class="end-wrapper">
-	<hr COLOR="orange"  >
-	<div class="copy-right">
-		<h4> Product Created By <b> <%= link_to('TQR', 'https://pk.linkedin.com/in/touqeer-ahmad-6a7b32b7') %></b>
-			<br><br> Product Powered By <%= link_to('Ruby on Rails', 'http://rubyonrails.org/') %>
-			<br><br> API Powered By <%= link_to('Food2Fork', 'http://www.food2fork.com/') %>
-			<br><br> Foodicted: Copyrights and trademarks for the food recipes, and other promotional materials
-			are held by their respective owners and their use is allowed under the fair use clause of the
-			<%= link_to("Copyright Law") %> | <%= link_to("Privacy Policy") %> | <%= link_to("DMCA") %>
-		</h4>
+		<%= form_tag(foods_recipe_path, method: "get") do %>
+		      <%= text_field_tag :looking_for, nil, :placeholder => 'What you want to hunt for...' %><br>
+		      <%= image_submit_tag("search_btn.jpg") %>
+		<% end %>
 	</div>
 </div>
-
-<div>
