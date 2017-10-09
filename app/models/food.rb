@@ -1,24 +1,18 @@
-#require 'HTTParty'
-#require 'pp'
-
 class Food
  include HTTParty
- ENV["FOOD2FORK_KEY"] = 'fc1ef6e2a978110dd05031e51f4aa01f'
- #default_options.update(verify: false) # Turn off SSL verification
+ default_options.update(verify: true) # Turn off SSL verification
  base_uri 'http://food2fork.com/api'
- default_params key: ENV["FOOD2FORK_KEY"]
+ default_params key: APP_CONFIG[:food2fork_api_key]
  format :json
- 
+
  def self.for term
  	begin
  	get("/search", query: { q: term})["recipes"]
  	rescue Exception => e
-	  puts e.message
+	  p '*'*100
+    p e.message
 	  return "error"
 	end
  end
 
- end
-
-
-#p Food.for('noodle')
+end

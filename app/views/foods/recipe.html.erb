@@ -1,7 +1,7 @@
 <div class="container">
 <div height="80%">
 
-<%= link_to(image_tag("foodicted_logo.png"), foods_index_path)%>
+<%= link_to(image_tag("foodicted_logo.png"), root_path)%>
 
 <%= form_tag(foods_recipe_path, method: "get") do %>
       <%= text_field_tag(:looking_for) %><br>
@@ -11,7 +11,7 @@
 
 <h2>Hunting For: <%= @search_term %></h2>
 
-<% if (@foods.nil? or @foods == []) %>
+<% if !@foods.present? %>
 	<p>
 	 <h3>No recipe found...</h3>
 	 <h3>Hey! don't give up.</h3>
@@ -50,7 +50,7 @@
 
 		<% end %>
 	</TABLE>
-<% end %>	
+<% end %>
 </div>
 <div id="end-wrapper2" class="end-wrapper">
 	<hr COLOR="orange"  >
@@ -59,7 +59,7 @@
 			<br><br> Product Powered By <%= link_to('Ruby on Rails', 'http://rubyonrails.org/') %>
 			<br><br> API Powered By <%= link_to('Food2Fork', 'http://www.food2fork.com/') %>
 			<br><br> Foodicted: Copyrights and trademarks for the food recipes, and other promotional materials
-			are held by their respective owners and their use is allowed under the fair use clause of the 
+			are held by their respective owners and their use is allowed under the fair use clause of the
 			<%= link_to("Copyright Law") %> | <%= link_to("Privacy Policy") %> | <%= link_to("DMCA") %>
 		</h4>
 	</div>

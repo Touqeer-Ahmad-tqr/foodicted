@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   get 'foods/recipe'
-  get 'foods/index'
   root 'foods#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
