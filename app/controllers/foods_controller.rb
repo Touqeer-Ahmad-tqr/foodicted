@@ -4,8 +4,8 @@ class FoodsController < ApplicationController
   end
 
   def get_recipes
-  	@search_term = params[:looking_for]
-  	@foods = Food.for(@search_term)
+  	@foods = Food.for(params[:looking_for])
+  	@foods = Kaminari.paginate_array(@foods).page(params[:page]).per(10) if @foods.present? && @foods != 'error'
   end
 
 end

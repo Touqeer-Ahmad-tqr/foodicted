@@ -1,4 +1,5 @@
 class Food
+
   include HTTParty
   default_options.update(verify: true) # Turn off SSL verification
   base_uri 'http://food2fork.com/api'

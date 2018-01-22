@@ -1,14 +1,6 @@
 <%= render partial: 'partials/search_form' %>
-<div class="container">
-	<% if !@foods.present? %>
-		<p>
-		 <h3>No recipe found...</h3>
-		 <h3>Hey! don't give up.</h3>
-		 <h3>YOU ARE a HUNTER</h3>
-		</p>
-	<% elsif (@foods=="error") %>
-		<h3>!!..Food2Fork Server Down..!!</h3>
-	<% else %>
+<% if @foods.present? && @foods.class.name != 'String' %>
+	<div class="container">
 		<TABLE class="recipies_list" Border = "2" Cellpadding = "4" >
 			<TR class=<%= 'zero' %>>
 				<TH Colspan = "1" Align = "center"><h2>Image</h2></TH>
@@ -39,5 +31,6 @@
 
 			<% end %>
 		</TABLE>
-	<% end %>
-</div>
+	</div>
+	<%= paginate @foods %>
+<% end %>

@@ -1,13 +1,24 @@
-<div class="container">
-  <div class="logo-wrapper" style="<%= 'padding: 15px;' if params[:action] == 'get_recipes' %>">
+<div class="container <%= 'index-search' if params[:action] == 'index' || @foods == 'error' || @foods == [] %>">
+  <div class="logo-wrapper">
+    
     <%= link_to(image_tag("foodicted_logo.png", class: 'logo_img'), root_path)%>
 
     <%= form_tag(foods_get_recipes_path, method: "get") do %>
       <%= text_field_tag :looking_for, nil, :placeholder => 'What you want to hunt for...' %><br>
       <%= image_submit_tag("search_btn.jpg") %>
     <% end %>
+
     <% if params[:action] == 'get_recipes' %>
-      <h2>Hunting For: <%= @search_term %></h2>
+      <h2>Hunting For: <%= params[:looking_for] %></h2>
+      <% if @foods == 'error' %>
+        <h3>!!..Food2Fork Server Down..!!</h3>
+      <% elsif @foods == [] %>
+        <p>
+         <h4>No recipe found...</h4>
+         <h4>Hey! don't give up.</h4>
+         <h4>YOU ARE a HUNTER</h4>
+        </p>
+      <% end %>
     <% end %>
   </div>
 </div>
