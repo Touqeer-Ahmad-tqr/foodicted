@@ -1,14 +1,4 @@
-<div class="container">
-	<div class="logo-wrapper" style="padding-top: 3%;">
-		<%= link_to(image_tag("foodicted_logo.png", class: 'logo_img'), root_path)%>
-
-		<%= form_tag(foods_recipe_path, method: "get") do %>
-		      <%= text_field_tag :looking_for, nil, :placeholder => 'What you want to hunt for...' %><br>
-		      <%= image_submit_tag("search_btn.jpg") %>
-		<% end %>
-		<h2>Hunting For: <%= @search_term %></h2>
-	</div>
-</div>
+<%= render partial: 'partials/search_form' %>
 <div class="container">
 	<% if !@foods.present? %>
 		<p>
