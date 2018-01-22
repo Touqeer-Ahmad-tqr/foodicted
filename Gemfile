@@ -31,7 +31,6 @@ gem 'kaminari'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
- gem 'pg', '1.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -52,5 +51,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :production do
+ gem 'pg', '0.15.1'
  gem 'rails_12factor'
 end
