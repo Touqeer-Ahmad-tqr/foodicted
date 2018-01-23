@@ -1,4 +1,4 @@
-<div class="container <%= 'index-search' if params[:action] == 'index' || @foods == 'error' || @foods == [] %>">
+<div class="container <%= class_check(params[:action], @foods) %>">
   <div class="logo-wrapper">
     
     <%= link_to(image_tag("foodicted_logo.png", class: 'logo_img'), root_path)%>

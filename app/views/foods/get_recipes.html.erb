@@ -1,36 +1,36 @@
 <%= render partial: 'partials/search_form' %>
 <% if @foods.present? && @foods.class.name != 'String' %>
-	<div class="container">
-		<TABLE class="recipies_list" Border = "2" Cellpadding = "4" >
-			<TR class=<%= 'zero' %>>
-				<TH Colspan = "1" Align = "center"><h2>Image</h2></TH>
-				<TH Colspan = "2" Align = "center"><h2>Details</h2></TH>
-			</TR>
-			<% @foods.each do |course| %>
-				<TR class=<%= 'one' %>>
-					<TH Rowspan = "4"><%= link_to(image_tag(course["image_url"], class: "recipe_image"), course["image_url"])%></TH>
-					<Td><b>Name:</b></Td>
-					<Td><%= course["title"] %></Td>
-				</TR>
+  <div class="container">
+    <TABLE class="recipies_list" Border = "2" Cellpadding = "4" >
+      <TR class=<%= 'zero' %>>
+        <TH Colspan = "1" Align = "center"><h2>Image</h2></TH>
+        <TH Colspan = "2" Align = "center"><h2>Details</h2></TH>
+      </TR>
+      <% @foods.each do |course| %>
+        <TR class=<%= 'one' %>>
+          <TH Rowspan = "4"><%= link_to(image_tag(course["image_url"], class: "recipe_image"), course["image_url"])%></TH>
+          <Td><b>Name:</b></Td>
+          <Td><%= course["title"] %></Td>
+        </TR>
 
-				<TR class=<%= 'two' %>>
-					<Td><b>Rank:</b></Td>
-					<Td><%= course["social_rank"] %></Td>
-				</TR>
+        <TR class=<%= 'two' %>>
+          <Td><b>Rank:</b></Td>
+          <Td><%= course["social_rank"] %></Td>
+        </TR>
 
-				<TR class=<%= 'three' %>>
-					<Td Colspan = "2" Align = "center"><%= link_to("View Article", course["source_url"]) %></Td>
-				</TR>
+        <TR class=<%= 'three' %>>
+          <Td Colspan = "2" Align = "center"><%= link_to("View Article", course["source_url"]) %></Td>
+        </TR>
 
-				<TR class=<%= 'four' %>>
-					<Td Colspan = "2" Align = "center"><%= link_to("View on Food2Fork", course["f2f_url"]) %></Td>
-				</TR>
-				<TR class=<%= 'five' %>>
-					<Td Colspan = "3" Align = "center"></Td>
-				</TR>
+        <TR class=<%= 'four' %>>
+          <Td Colspan = "2" Align = "center"><%= link_to("View on Food2Fork", course["f2f_url"]) %></Td>
+        </TR>
+        <TR class=<%= 'five' %>>
+          <Td Colspan = "3" Align = "center"></Td>
+        </TR>
 
-			<% end %>
-		</TABLE>
-	</div>
-	<%= paginate @foods %>
+      <% end %>
+    </TABLE>
+  </div>
+  <%= paginate @foods %>
 <% end %>
